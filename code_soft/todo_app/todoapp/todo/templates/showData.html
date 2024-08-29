@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Details</title>
+    <style>
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f0f2f5;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        .card {
+            background-color: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+            width: 350px;
+            transition: transform 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 22px;
+            color: #333333;
+            font-weight: 600;
+        }
+        .task-details {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        .task-details p {
+            margin: 0;
+            font-size: 16px;
+            color: #555555;
+        }
+        .task-details p span {
+            display: block;
+            font-weight: 600;
+            color: #333333;
+            margin-bottom: 5px;
+        }
+        .card-footer {
+            text-align: center;
+            margin-top: 20px;
+            color: #888888;
+            font-size: 14px;
+        }
+        .button-group {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+            transition: background-color 0.3s ease;
+            flex-grow: 1;
+            margin: 0 5px;
+        }
+        .button.update {
+            background-color: #4CAF50;
+            color: white;
+        }
+        .button.update:hover {
+            background-color: #45a049;
+        }
+        .button.delete {
+            background-color: #f44336;
+            color: white;
+        }
+        .button.delete:hover {
+            background-color: #e53935;
+        }
+    </style>
+</head>
+<body>
+    {% for i in data %}
+    <div class="card">
+        <h2>Task Details</h2>
+        
+        <div class="task-details">
+            <p>
+                <span>Serial</span>
+                {{i.serial}}
+            </p>
+            <p>
+                <span>Assignee</span>
+                {{i.assignee}}
+            </p>
+            <p>
+                <span>Title</span>
+                {{i.title}}
+            </p>
+            <p>
+                <span>Description</span>
+                {{i.description}}
+            </p>
+            <p>
+                <span>Status</span>
+                {{i.status}}
+            </p>
+        </div>
+        <div class="button-group">
+            <button class="button update">Update</button>
+            <button class="button delete">Delete</button>
+        </div>
+        <div class="card-footer">
+            <p>Task Management System</p>
+        </div>
+    </div>
+    {% endfor %}
+</body>
+</html>
